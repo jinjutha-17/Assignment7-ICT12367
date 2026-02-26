@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Form</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial;
+        }
+
+        .container {
+            width: 350px;
+            margin: 80px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>บันทึกข้อมูลพนักงาน</h2>
+
+    {% if success %}
+        <div class="success">
+            บันทึกข้อมูลสำเร็จ 🎉
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Full Name</label>
+        <input type="text" name="fullname">
+
+        <label>Email</label>
+        <input type="email" name="email">
+
+        <label>Position</label>
+        <select name="position">
+            <option>Manager</option>
+            <option>Staff</option>
+        </select>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone">
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
